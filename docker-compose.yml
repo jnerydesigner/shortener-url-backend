@@ -1,0 +1,17 @@
+version: '3'
+services:
+  shorturl_yt:
+    container_name: shorturl_yt
+    image: postgres:latest
+    ports:
+      - '5439:5432'
+    volumes:
+      - /data/postgres:/data/postgres
+    env_file:
+      - docker.env
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
